@@ -1,0 +1,12 @@
+{
+  "name": "youxi-ku",
+  "version": "1.0.0",
+  "private": true,
+  "description": "游戏库：小贺茶馆四川麻将与小贺渔场。贺义制作，纯属娱乐。",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test games/mahjong/engine.test.js games/fishing/engine.test.js games/fishing/animation.test.js site.test.js",
+    "build": "node build.js"
+  },
+  "engines": { "node": ">=18" }
+}

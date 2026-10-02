@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#174f43">
+  <meta name="description" content="小贺茶馆 · 四川麻将单机版，定缺血战、三档人机、轻松对局。">
+  <title>小贺茶馆 · 四川麻将</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23174f43'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-size='42' fill='%23f4e8c7'%3E川%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mobile.css">
+  <script defer src="engine.js"></script>
+  <script defer src="tiles.js"></script>
+  <script defer src="avatars.js"></script>
+  <script defer src="audio.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="小贺茶馆首页"><span class="brand-mark">贺</span><span><strong>小贺茶馆</strong><small>XIAOHE MAHJONG</small></span></a>
+    <nav class="top-nav" aria-label="主导航"><button class="nav-link active" id="home-nav">茶馆牌桌</button><button class="nav-link" data-modal="rules">玩法说明</button><button class="nav-link" data-modal="history">我的战绩</button></nav>
+    <div class="header-tools"><a class="library-link" href="../../index.html" aria-label="返回游戏库">‹ 游戏库</a><button class="icon-button" id="music-toggle" title="背景音乐" aria-label="关闭背景音乐"></button><button class="icon-button" data-modal="settings" title="游戏设置" aria-label="游戏设置"></button><span class="watermark">贺义制作，仅供娱乐</span></div>
+  </header>
+  <main class="main-wrap">
+    <div class="page-heading"><div><div class="eyebrow"><span></span> 闲来一局 · 自在随心</div><h1>四川麻将 <span>血战到底</span></h1></div><div class="room-status"><i></i> 单机畅玩 <span>·</span> 无需联网</div></div>
+    <div class="game-layout">
+      <section class="play-area" aria-label="麻将牌桌">
+        <div class="table-topline"><span><i class="live-dot"></i> 小贺雅间 <b>01</b></span><span id="table-meta">底分 ￥10 <span class="meta-divider">/</span> 一人三机</span><button id="restart-button" title="重新开局"></button></div>
+        <div class="mahjong-table" id="mahjong-table">
+          <div class="table-grain"></div><div class="table-line"></div>
+          <svg class="bamboo-decor bamboo-left" viewBox="0 0 210 320" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3"><path d="M30 330Q80 150 55-20M65 330Q96 130 123-20M112 330Q107 130 190-20"/><path d="m52 110 80-45m-56 97 76-20M55 52 5 10m61 90L18 74m68 64 36-51m-15 110 73-37m-72 40-55-29"/></g><g fill="currentColor"><path d="M78 99Q91 48 131 61Q99 77 78 99M81 100Q128 76 146 91Q114 111 81 100M109 161Q150 114 178 136Q141 157 109 161M98 223Q130 181 172 190Q133 213 98 223M56 77Q19 59 8 22Q44 35 56 77M75 153Q28 141 17 105Q59 112 75 153M126 86Q131 36 163 23Q154 68 126 86"/></g></svg>
+          <svg class="bamboo-decor bamboo-right" viewBox="0 0 210 320" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3"><path d="M30 330Q80 150 55-20M65 330Q96 130 123-20M112 330Q107 130 190-20"/><path d="m52 110 80-45m-56 97 76-20m31 35 73-37"/></g><g fill="currentColor"><path d="M78 99Q91 48 131 61Q99 77 78 99M81 100Q128 76 146 91Q114 111 81 100M109 161Q150 114 178 136Q141 157 109 161M98 223Q130 181 172 190Q133 213 98 223M56 77Q19 59 8 22Q44 35 56 77M75 153Q28 141 17 105Q59 112 75 153M126 86Q131 36 163 23Q154 68 126 86"/></g></svg>
+          <div class="opponent opponent-top" id="player-2"></div>
+          <div class="opponent opponent-left" id="player-3"></div>
+          <div class="opponent opponent-right" id="player-1"></div>
+          <div class="center-zone" id="center-zone"><div class="compass" id="compass"></div></div>
+          <div class="discard-zone discard-top" id="discards-2" aria-label="对家弃牌"></div>
+          <div class="discard-zone discard-left" id="discards-3" aria-label="左侧弃牌"></div>
+          <div class="discard-zone discard-right" id="discards-1" aria-label="右侧弃牌"></div>
+          <div class="discard-zone discard-bottom" id="discards-0" aria-label="我的弃牌"></div>
+          <div class="table-overlay" id="table-overlay"></div>
+          <div class="announcement" id="announcement" aria-live="polite"></div>
+          <div class="human-area">
+            <div class="human-topline"><div class="human-profile" id="human-profile"></div><div class="turn-hint" id="turn-hint" aria-live="polite">茶已备好，等你入座</div><button class="subtle-button" id="hint-button" title="给出一张建议打出的牌">出牌提示</button></div>
+            <div class="melds human-melds" id="melds-0"></div>
+            <div class="human-hand" id="human-hand" aria-label="我的手牌"></div>
+            <div class="action-row"><span class="hand-guide" id="hand-guide">点击选牌，再点一次出牌</span><div class="action-buttons" id="action-buttons"></div></div>
+          </div>
+        </div>
+        <div class="table-footer"><span id="footer-tip"></span><div><span class="keyboard-key">空格</span> 出牌 <span class="footer-separator">·</span> <span class="keyboard-key">H</span> 提示 <span class="footer-separator">·</span> <button data-modal="rules">查看规则 ↗</button></div></div>
+      </section>
+      <aside class="sidebar">
+        <section class="wallet-card"><div class="card-heading"><span class="section-icon" id="wallet-icon"></span><h2>我的钱包</h2><span class="tiny-tag">虚拟余额</span></div><div class="balance" id="balance">￥10,000<span>.00</span></div><div class="wallet-change" id="wallet-change">从一局好牌，开始今日好心情</div><div class="wallet-divider"></div><div class="wallet-stats"><div><span>今日场次</span><strong id="stat-rounds">0 <small>局</small></strong></div><div><span>累计净收益</span><strong id="stat-profit">￥0</strong></div></div><button class="wallet-manage" data-modal="wallet">管理余额 <span>↗</span></button></section>
+        <section class="settings-card side-card"><div class="card-heading"><span class="section-icon" id="settings-icon"></span><h2>牌局设置</h2></div><label class="field-label">人机难度</label><div class="difficulty-control" id="difficulty-control"><button data-difficulty="easy">简单</button><button data-difficulty="normal" class="selected">一般</button><button data-difficulty="hard">困难</button></div><p class="difficulty-description" id="difficulty-description">攻守兼备，来一场轻松的较量</p><div class="base-setting"><label for="base-select">每局底分</label><select id="base-select"><option value="10">￥10</option><option value="20">￥20</option><option value="50">￥50</option><option value="100">￥100</option></select></div><div class="setting-note">难度与底分在下一局生效</div></section>
+        <section class="activity-card side-card"><div class="card-heading"><span class="section-icon" id="activity-icon"></span><h2>牌局动态</h2><span class="round-counter" id="round-counter">准备中</span></div><div class="activity-list" id="activity-list"><div class="empty-activity">风吹竹影，静候开局。<br><span>每一步精彩，都会记录在这里。</span></div></div></section>
+        <div class="teahouse-note"><svg viewBox="0 0 68 60" aria-hidden="true"><path d="M16 27h35l-4 20H20z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M51 30h6q9 11-8 13M10 51h46M27 20q-7-7 0-13m12 13q-7-7 0-13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><div><strong>一盏清茶，一局好牌</strong><span>输赢随意，开心就好。</span></div></div>
+      </aside>
+    </div>
+    <footer class="page-footer"><span>小贺茶馆 <b>·</b> 让闲暇，更有滋味</span><span>纯单机体验 <b>·</b> 所有金额均为虚拟娱乐积分</span></footer>
+  </main>
+  <dialog id="modal" aria-labelledby="modal-title"><div class="modal-header"><div><span class="eyebrow">XIAOHE TEAHOUSE</span><h2 id="modal-title"></h2></div><button class="icon-button" id="modal-close" aria-label="关闭弹窗">✕</button></div><div id="modal-body"></div></dialog>
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>

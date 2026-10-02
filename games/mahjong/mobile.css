@@ -1,0 +1,194 @@
+/* The game remains scrollable in portrait; landscape gives the table priority. */
+html { -webkit-text-size-adjust: 100%; }
+body { padding-bottom: env(safe-area-inset-bottom); }
+button, a, select, input { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.human-hand, .action-buttons, .dingque-options { user-select: none; -webkit-user-select: none; }
+.library-link { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 10px; border-radius: 8px; color: #456950; font-size: 13px; text-decoration: none; white-space: nowrap; }
+.library-link:hover { background: #e8eee4; }
+.site-header { padding-left: max(22px, env(safe-area-inset-left)); padding-right: max(22px, env(safe-area-inset-right)); }
+.icon-button, .header-tools .icon-button, #restart-button { min-width: 44px; min-height: 44px; }
+#restart-button { display: grid; place-items: center; }
+.action-button, .subtle-button, .wallet-manage, .difficulty-control button, .quick-amounts button, .secondary-button, .settings-links button { min-height: 44px; }
+.action-buttons { flex-wrap: wrap; justify-content: flex-end; }
+.action-row { min-height: 48px; height: auto; gap: 8px; }
+.hand-guide { min-width: 0; }
+dialog { max-height: calc(100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom)); overscroll-behavior: contain; }
+.setting-row select, .base-setting select { min-height: 44px; }
+.setting-row input[type="range"] { min-height: 44px; }
+.setting-row input[type="checkbox"] { flex: 0 0 26px; width: 26px; height: 26px; }
+
+@media (hover: none) {
+  .human-hand .tile:hover:not(:disabled):not(.selected), .dingque-option:hover { transform: none; }
+}
+
+@media (max-width: 1100px) {
+  .watermark { display: none; }
+}
+
+@media (max-width: 879px) {
+  .site-header { height: calc(64px + env(safe-area-inset-top)); padding: env(safe-area-inset-top) max(8px, env(safe-area-inset-right)) 0 max(12px, env(safe-area-inset-left)); }
+  .header-tools { gap: 0; }
+  .top-nav { display: none; }
+  .library-link { padding: 0 7px; font-size: 12px; }
+  .brand { gap: 7px; }
+  .brand strong { font-size: 18px; }
+  .brand-mark { width: 30px; height: 37px; font-size: 25px; }
+  .brand small { font-size: 6px; }
+  .main-wrap { padding: 12px max(4px, env(safe-area-inset-right)) 0 max(4px, env(safe-area-inset-left)); }
+  .page-heading { padding: 0 9px; margin-bottom: 13px; }
+  .page-heading h1 { font-size: 23px; }
+  .page-heading .eyebrow, .room-status { display: none; }
+  .play-area { border-radius: 11px; }
+  .table-topline { height: 44px; padding: 0 10px; }
+  #table-meta { margin-right: 5px; font-size: 10px; }
+  .large-font .table-topline #table-meta { font-size: 10px; }
+  .mahjong-table { height: 580px; }
+  .opponent-top { top: 13px; gap: 6px; }
+  .opponent-top .avatar { width: 36px; height: 36px; }
+  .opponent-top .opponent-backs { height: 28px; }
+  .opponent-top .tile-back { height: 23px; width: 16px; }
+  .opponent-left, .opponent-right { top: 169px; width: 62px; }
+  .opponent-left { left: 7px; }
+  .opponent-right { right: 7px; }
+  .opponent-left .avatar, .opponent-right .avatar { width: 38px; height: 38px; }
+  .opponent-left .player-name, .opponent-right .player-name,
+  .large-font .opponent-left .player-name, .large-font .opponent-right .player-name { font-size: 13px; letter-spacing: 0; }
+  .opponent-left .opponent-backs, .opponent-right .opponent-backs { margin-top: 9px; height: 48px; }
+  .opponent-left .opponent-backs .tile-back, .opponent-right .opponent-backs .tile-back { width: 7px; height: 21px; }
+  .opponent-left .melds, .opponent-right .melds { max-height: 54px; overflow-y: auto; }
+  .center-zone { top: 202px; }
+  .compass { width: 60px; height: 60px; border-radius: 10px; }
+  .wall-count { font-size: 24px; }
+  .compass-title { font-size: 18px; }
+  .discard-zone { gap: 2px; }
+  .discard-zone .tile.mini { width: 17px; height: 24px; }
+  .discard-top { top: 103px; width: 171px; max-height: 52px; overflow-y: auto; }
+  .discard-left, .discard-right { top: 177px; width: 36px; max-height: 126px; overflow-y: auto; }
+  .discard-left { left: 74px; }
+  .discard-right { right: 74px; }
+  .discard-bottom { bottom: 281px; width: 171px; max-height: 52px; overflow-y: auto; }
+  .table-overlay, .table-overlay.result-overlay { top: 111px; width: 340px; max-width: calc(100% - 102px); }
+  .welcome-panel { padding: 12px 9px; }
+  .welcome-panel h2 { font-size: 20px; margin: 6px 0; }
+  .welcome-panel p { margin: 6px 0; line-height: 1.5; }
+  .welcome-features { gap: 7px; flex-wrap: wrap; }
+  .dingque-options { gap: 7px; }
+  .dingque-option { min-width: 48px; flex: 1; max-width: 78px; padding: 6px 3px; }
+  .dingque-option strong { font-size: 24px; line-height: 1.2; margin: 2px 0; }
+  .human-area { left: 8px; right: 8px; bottom: 10px; }
+  .human-topline { height: 45px; margin-bottom: 12px; gap: 5px; }
+  .human-profile { gap: 5px; }
+  .human-profile .avatar { width: 29px; height: 29px; }
+  .human-profile .player-name { font-size: 11px; }
+  .human-profile .player-info { font-size: 10px; }
+  .you-tag { display: none; }
+  .turn-hint, .large-font .turn-hint { flex: 1; max-width: none; font-size: 11px; line-height: 1.5; margin: 0; }
+  .subtle-button, .large-font .subtle-button { font-size: 11px; padding: 5px 7px; }
+  .human-hand { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px 3px; justify-items: center; min-height: 140px; max-width: 420px; margin: auto; padding-bottom: 5px; }
+  .human-hand .tile, .large-font .human-hand .tile { width: 100%; max-width: 56px; height: 64px; max-height: none; padding: 1px; border-radius: 4px; }
+  .human-hand .tile.drawn { margin-left: 0; outline: 1px solid #dfc88b; outline-offset: 1px; }
+  .human-hand .tile.selected { transform: translateY(-6px); }
+  .human-hand .tile.recommended:before { top: 0; left: 1px; padding: 1px 3px; font-size: 9px; z-index: 1; }
+  .human-melds { top: -21px; }
+  .action-row { display: flex; flex-direction: column; align-items: stretch; gap: 4px; margin-top: 4px; min-height: 65px; }
+  .hand-guide, .large-font .hand-guide { font-size: 11px; line-height: 17px; text-align: center; min-height: 17px; letter-spacing: 0; }
+  .action-buttons { gap: 6px; min-height: 44px; }
+  .action-button, .large-font .action-button { height: 44px; min-width: 52px; padding: 0 15px; font-size: 15px; }
+  .action-button.main { min-width: 100px; }
+  .settings-links { flex-wrap: wrap; gap: 4px 12px; }
+  .table-footer { min-height: 36px; padding: 8px 10px; }
+  .sidebar { padding: 0 3px; grid-template-columns: 1fr 1fr; }
+  .activity-card { grid-column: 1 / -1; }
+  .difficulty-control button, .large-font .difficulty-control button { font-size: 14px; min-width: 0; }
+  .base-setting select, .setting-row select, input { font-size: 16px; }
+  .activity-list { flex-direction: column; gap: 8px; }
+  dialog { padding: 20px 16px; width: calc(100% - 20px); }
+  .modal-header { margin-bottom: 16px; padding-bottom: 13px; }
+  .modal-header h2 { font-size: 23px; }
+  .modal-actions { flex-wrap: wrap; gap: 8px; }
+  .setting-row { gap: 8px; }
+  .setting-row input[type=range] { width: 116px; }
+  .toast { bottom: max(18px, env(safe-area-inset-bottom)); font-size: 13px; padding: 12px 16px; }
+}
+
+@media (max-width: 359px) {
+  .brand small, .brand-mark { display: none; }
+  .brand strong { font-size: 17px; letter-spacing: 1px; }
+  .human-hand { grid-template-columns: repeat(6, minmax(0, 1fr)); min-height: 212px; max-width: 328px; }
+  .mahjong-table { height: 652px; }
+  .discard-bottom { bottom: 353px; }
+  .human-profile .avatar { display: none; }
+  .wallet-stats { gap: 5px; }
+  .wallet-stats strong { font-size: 15px; }
+  .large-font .card-heading h2 { font-size: 14px; }
+  .tiny-tag { display: none; }
+}
+
+/* Wide phones in landscape fit a complete hand and action bar without scrolling. */
+@media (min-width: 700px) and (max-height: 600px) and (orientation: landscape) {
+  .site-header { height: calc(48px + env(safe-area-inset-top)); padding-top: env(safe-area-inset-top); }
+  .brand-mark { width: 27px; height: 34px; font-size: 22px; }
+  .brand strong { font-size: 18px; }
+  .brand small, .top-nav, .page-heading, .sidebar, .page-footer, .table-footer { display: none; }
+  .main-wrap { padding: 0 max(7px, env(safe-area-inset-right)) 0 max(7px, env(safe-area-inset-left)); }
+  .play-area { border-radius: 9px; }
+  .game-layout { display: block; }
+  .table-topline { height: 44px; font-size: 11px; padding: 0 12px; }
+  #table-meta, .large-font .table-topline #table-meta { font-size: 11px; }
+  #restart-button { min-height: 44px; }
+  .mahjong-table { height: max(290px, calc(100dvh - 95px - env(safe-area-inset-top) - env(safe-area-inset-bottom))); }
+  .opponent-top { top: 8px; gap: 3px; }
+  .opponent .avatar { width: 31px; height: 31px; border-width: 2px; }
+  .opponent .player-name, .large-font .opponent-left .player-name, .large-font .opponent-right .player-name { font-size: 12px; }
+  .opponent .player-info, .large-font .opponent .player-info, .opponent .missing-badge { font-size: 9px; margin-top: 2px; }
+  .opponent-top .opponent-backs { height: 18px; gap: 2px; }
+  .opponent-top .tile-back { width: 13px; height: 18px; }
+  .opponent-left, .opponent-right { top: 39px; width: 100px; }
+  .opponent-left { left: 17px; }
+  .opponent-right { right: 17px; }
+  .opponent-left .player-card, .opponent-right .player-card { flex-direction: row; gap: 6px; }
+  .opponent-left .opponent-backs, .opponent-right .opponent-backs { margin-top: 6px; height: 27px; }
+  .opponent-left .opponent-backs .tile-back, .opponent-right .opponent-backs .tile-back { width: 6px; height: 17px; }
+  .opponent .melds { max-height: 36px; overflow: auto; }
+  .center-zone { top: 102px; width: 76px; height: 28px; }
+  .compass { width: 76px; height: 28px; border-radius: 9px; transform: none; }
+  .compass-content { transform: none; display: flex; align-items: center; gap: 5px; }
+  .compass-title { font-size: 17px; }
+  .wall-count { font-size: 22px; }
+  .compass-label { font-size: 7px; }
+  .discard-zone { gap: 2px; }
+  .discard-zone .tile.mini { width: 15px; height: 21px; }
+  .discard-top { top: 66px; width: 168px; max-height: 23px; overflow-y: auto; }
+  .discard-left, .discard-right { top: 73px; width: 66px; max-height: 68px; overflow-y: auto; }
+  .discard-left { left: 22%; }
+  .discard-right { right: 22%; }
+  .discard-bottom { bottom: 143px; width: 168px; max-height: 23px; overflow-y: auto; }
+  .human-area { left: 12px; right: 12px; bottom: 4px; }
+  .human-topline { height: 28px; margin-bottom: 9px; }
+  .human-profile .avatar { width: 25px; height: 25px; }
+  .human-profile .player-name { font-size: 11px; }
+  .human-profile .player-info, .large-font .human-profile .player-info { font-size: 9px; }
+  .turn-hint, .large-font .turn-hint { font-size: 12px; max-width: none; }
+  .subtle-button { min-height: 44px; }
+  .human-hand { display: flex; flex-wrap: nowrap; gap: 3px; min-height: 58px; max-width: none; padding-bottom: 3px; }
+  .human-hand .tile, .large-font .human-hand .tile { width: clamp(44px, 5.8vw, 53px); height: 56px; max-height: 56px; padding: 1px; }
+  .human-hand .tile.drawn { margin-left: 4px; }
+  .human-hand .tile.selected { transform: translateY(-6px); }
+  .human-hand .tile.recommended:before { top: 0; left: 1px; font-size: 9px; padding: 1px 3px; }
+  .human-melds { top: -10px; right: 90px; }
+  .human-melds .tile.mini { width: 15px; height: 21px; }
+  .action-row { flex-direction: row; align-items: center; min-height: 44px; margin-top: 3px; gap: 8px; }
+  .hand-guide, .large-font .hand-guide { font-size: 11px; text-align: left; }
+  .action-buttons { gap: 6px; }
+  .action-button, .large-font .action-button { min-height: 44px; height: 44px; font-size: 14px; }
+  .table-overlay, .table-overlay.result-overlay { top: 8px; max-width: min(370px, 57%); }
+  .welcome-panel { padding: 10px 14px; }
+  .welcome-panel h2, .table-overlay.result-overlay .welcome-panel h2 { font-size: 21px; margin: 6px 0; }
+  .welcome-panel p { font-size: 11px; margin: 5px 0 9px; }
+  .welcome-panel p br { display: none; }
+  .welcome-overline, .welcome-features { display: none; }
+  .primary-button { min-height: 44px; padding: 8px 24px; font-size: 15px; }
+  .dingque-option { padding: 2px 7px; }
+  .dingque-option strong { font-size: 21px; margin: 0; }
+  .announcement { top: 120px; font-size: 36px; }
+}

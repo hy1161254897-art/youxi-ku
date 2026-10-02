@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173e36">
+  <meta name="description" content="贺义的小游戏库：到小贺茶馆打一局四川麻将，或在小贺渔场畅游深蓝。打开即玩，纯属娱乐。">
+  <title>游戏库 · 贺义制作</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/icon.svg">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#games">跳到游戏列表</a>
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="share" viewBox="0 0 24 24"><path d="M12 15V3m-4 4 4-4 4 4M5 11v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8"/></symbol>
+    <symbol id="spark" viewBox="0 0 24 24"><path d="m12 3 2.4 6.6L21 12l-6.6 2.4L12 21l-2.4-6.6L3 12l6.6-2.4L12 3Z"/></symbol>
+    <symbol id="cup" viewBox="0 0 24 24"><path d="M4 8h13v6a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6V8Zm13 1h2a3 3 0 0 1 0 6h-2M8 3v2m5-2v2M3 22h16"/></symbol>
+    <symbol id="wave" viewBox="0 0 24 24"><path d="M2 9c3-4 5 4 8 0s5 4 8 0 4 0 4 0M2 15c3-4 5 4 8 0s5 4 8 0 4 0 4 0"/></symbol>
+    <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  </svg>
+
+  <header class="site-header wrap">
+    <a class="brand" href="./" aria-label="游戏库首页">
+      <span class="brand-stamp" aria-hidden="true">贺</span>
+      <span class="brand-words"><strong>游戏库</strong><small>HE YI'S LITTLE ARCADE</small></span>
+    </a>
+    <nav class="header-nav" aria-label="主导航">
+      <a class="nav-link active" href="#games">游戏大厅</a>
+      <a class="nav-link about-link" href="#about">关于这里</a>
+      <button class="share-button" type="button" data-share aria-label="分享给朋友"><svg aria-hidden="true"><use href="#share"/></svg><span>分享给朋友</span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="little-star" aria-hidden="true">✦</span> 给日常，留一点好玩的时间</p>
+        <h1 id="hero-title">忙里偷闲，<br>来玩<span class="hand-mark">一局。</span></h1>
+        <p class="hero-description">一杯茶的闲适，一片海的惊喜。<br class="mobile-break">挑一个喜欢的世界，轻松玩一会儿。</p>
+        <div class="hero-features" aria-label="游戏库特点">
+          <span><svg aria-hidden="true"><use href="#check"/></svg>打开即玩</span>
+          <span><svg aria-hidden="true"><use href="#check"/></svg>无需账号</span>
+          <span><svg aria-hidden="true"><use href="#check"/></svg>进度留在本机</span>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-outer"></div><div class="orbit orbit-inner"></div>
+        <span class="art-spark spark-one">✧</span><span class="art-spark spark-two">✦</span>
+        <div class="art-tile tile-back"><svg viewBox="0 0 120 120"><path d="M25 65C44 28 86 30 97 57 80 78 48 89 25 65Z"/><path d="m28 63-15-13v31l15-15M69 36l-9-14-6 17M74 78l-13 13-9-10"/><circle cx="82" cy="56" r="3"/></svg></div>
+        <div class="art-tile tile-front"><span>發</span><i>好 运 常 在</i></div>
+        <div class="art-caption"><span>RELAX. PLAY. REPEAT.</span><strong>不赶时间，只管尽兴。</strong></div>
+      </div>
+    </section>
+
+    <section id="games" class="games-section wrap" aria-labelledby="games-title">
+      <div class="section-heading"><div><p class="eyebrow">THE GAME COLLECTION</p><h2 id="games-title">今天，想怎么玩？</h2></div><span class="collection-count"><b>02</b> 款小乐趣</span></div>
+      <div class="game-grid">
+        <article class="game-card mahjong-card">
+          <a class="game-preview" href="./games/mahjong/" tabindex="-1" aria-hidden="true">
+            <img src="./assets/mahjong-preview.png" alt="" width="1265" height="712" fetchpriority="high">
+            <span class="preview-label"><svg><use href="#cup"/></svg>一桌好牌 · 一刻清闲</span>
+            <span class="preview-corner" aria-hidden="true">01</span>
+          </a>
+          <div class="game-content">
+            <div class="game-category"><span class="category-dot"></span>茶馆雅趣 <span class="category-en">TABLE & TEA</span></div>
+            <h3>小贺茶馆<span>四川麻将</span></h3>
+            <p class="game-description">茶已备好，三位牌友等你入座。<br>定缺、血战到底，慢慢打出一手好牌。</p>
+            <ul class="game-tags" aria-label="麻将游戏特点"><li>一人三机</li><li>四川玩法</li><li>难度可选</li></ul>
+            <a class="play-button" href="./games/mahjong/" aria-label="进入小贺茶馆，开始四川麻将"><span>入座开一局</span><svg aria-hidden="true"><use href="#arrow"/></svg></a>
+          </div>
+        </article>
+
+        <article class="game-card fishing-card">
+          <a class="game-preview" href="./games/fishing/" tabindex="-1" aria-hidden="true">
+            <img src="./assets/fishing-preview.png" alt="" width="1265" height="712" fetchpriority="high">
+            <span class="preview-label"><svg><use href="#wave"/></svg>潜入深蓝 · 满载而归</span>
+            <span class="preview-corner" aria-hidden="true">02</span>
+          </a>
+          <div class="game-content">
+            <div class="game-category"><span class="category-dot"></span>深海奇遇 <span class="category-en">OCEAN & WONDER</span></div>
+            <h3>小贺渔场<span>欢乐捕鱼</span></h3>
+            <p class="game-description">把快乐撒向大海，把烦恼留在岸上。<br>绚丽鱼群、畅快炮火，收获属于你的惊喜。</p>
+            <ul class="game-tags" aria-label="捕鱼游戏特点"><li>华丽海兽</li><li>爽快音效</li><li>自由调节</li></ul>
+            <a class="play-button" href="./games/fishing/" aria-label="进入小贺渔场，开始捕鱼"><span>出海捕鱼</span><svg aria-hidden="true"><use href="#arrow"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="about-strip wrap" aria-label="关于游戏库">
+      <div class="about-symbol" aria-hidden="true"><svg><use href="#spark"/></svg></div>
+      <div class="about-copy"><h2>简单的游戏，认真的快乐。</h2><p>这是贺义的小小游乐场。自己玩得开心，也欢迎把这份轻松分享给朋友。</p></div>
+      <button class="text-share" type="button" data-share>邀朋友来玩<svg aria-hidden="true"><use href="#arrow"/></svg></button>
+    </section>
+  </main>
+
+  <footer class="site-footer wrap"><p><span class="footer-mark" aria-hidden="true">贺</span><strong>贺义制作，纯属娱乐</strong></p><p>游戏内金币与余额均为虚拟数值。<span class="footer-divider"> / </span>愿你每次来，都有好心情。</p></footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog id="share-dialog" aria-labelledby="share-title" aria-describedby="share-description">
+    <button class="dialog-close" type="button" aria-label="关闭分享窗口"><svg aria-hidden="true"><use href="#close"/></svg></button>
+    <span class="dialog-icon" aria-hidden="true"><svg><use href="#share"/></svg></span>
+    <h2 id="share-title">好玩的，分享一下。</h2>
+    <p id="share-description">复制下面的网址，发给朋友就能一起分享游戏的快乐。</p>
+    <label for="share-url">游戏库网址</label><input id="share-url" type="text" readonly spellcheck="false">
+    <button class="play-button dialog-copy" id="copy-link" type="button"><span>复制网址</span><svg aria-hidden="true"><use href="#share"/></svg></button>
+    <p class="manual-hint" id="manual-hint">也可以长按或选中网址，手动复制。</p>
+  </dialog>
+</body>
+</html>

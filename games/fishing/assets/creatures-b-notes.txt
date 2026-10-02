@@ -1,0 +1,34 @@
+CREATURES B — FINAL ART ATLAS
+Built-in image_gen mode; generated then edited once for cell spacing.
+Saved asset: assets/creatures-b.png
+Dimensions: 1536 x 1024 pixels
+Format: PNG, 32-bit ARGB, original generated alpha preserved unchanged.
+Fully transparent pixels: 1,203,876 / 1,572,864 (76.54%).
+Opaque pixels (alpha > 240): 276,633.
+Central gutters: no pixels with alpha > 32 within 3 pixels of x=768 or y=512.
+
+Fixed cell mapping (x, y, width, height):
+Top left: manta ray    [0, 0, 768, 512]
+Top right: seahorse    [768, 0, 768, 512]
+Bottom left: king crab [0, 512, 768, 512]
+Bottom right: dragonfish [768, 512, 768, 512]
+
+Actual creature bounds, inclusive coordinates, alpha > 32:
+Manta ray: [126, 93, 687, 415]
+Seahorse: [1047, 60, 1275, 446]
+King crab: [142, 600, 662, 950]
+Dragonfish: [871, 609, 1434, 941]
+
+All four full creature silhouettes fit inside their own quadrants, without overlap or cropping.
+Visual QA: ornate volumetric blue/gold manta; upright emerald/gold ruby-crowned seahorse; red/gold crab with emerald inlays, eight walking legs and two claws; elongated gold/teal dragonfish facing right. No words, numbers, grids, UI or scene backgrounds.
+The RGB values of completely transparent pixels contain discarded render backdrop colors; alpha is real and must be respected by renderers. Canvas drawImage naturally does this.
+
+Original source kept at:
+C:/Users/He Yi/.codex/generated_images/01a0fb9b-dc03-7010-90a7-3e324dbaa0a5/exec-72710603-6656-45f8-9592-d4de29e30023.png
+
+INITIAL GENERATION PROMPT
+undefined
+
+FINAL SPACING EDIT PROMPT
+undefined
+

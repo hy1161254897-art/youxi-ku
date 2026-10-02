@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071c2b">
+  <meta name="description" content="小贺渔场，一场奇妙的深海冒险。贺义制作，纯属娱乐。">
+  <title>小贺渔场 · 潜入深蓝，满载而归</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2316d5bd'/%3E%3Cpath d='M12 32Q30 7 46 29L57 20V44L46 35Q30 57 12 32Z' fill='%23071c2b'/%3E%3Ccircle cx='24' cy='28' r='3' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="audio.js"></script>
+  <script defer src="animation-rigs.js"></script>
+  <script defer src="creatures.js"></script>
+  <script defer src="engine.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../../index.html" aria-label="返回游戏库"><span class="brand-symbol" data-icon="fish"></span><span><strong>小贺渔场</strong><small>← 返回游戏库</small></span></a>
+    <nav aria-label="主导航"><button class="nav-item active" id="home-nav"><span data-icon="waves"></span>渔场大厅</button><button class="nav-item" data-modal="atlas"><span data-icon="book"></span>鱼类图鉴</button><button class="nav-item" data-modal="stats"><span data-icon="chart"></span>我的战绩</button></nav>
+    <div class="header-tools"><span class="offline-label"><i></i> 单机畅玩</span><button class="icon-button" id="music-toggle" title="开关背景音乐" aria-label="关闭背景音乐" data-icon="music"></button><button class="icon-button" data-modal="settings" title="游戏设置" aria-label="游戏设置" data-icon="settings"></button></div>
+  </header>
+  <main>
+    <div class="page-heading"><div><div class="eyebrow">YOUR LITTLE OCEAN ESCAPE</div><h1>潜入深蓝，<span>满载而归。</span></h1><p>把快乐装满船，把烦恼留在岸上。</p></div><button class="text-button" data-modal="help"><span data-icon="help"></span> 新手航海指南 <span>↗</span></button></div>
+    <div class="game-layout">
+      <section class="game-shell" id="game-shell" aria-label="捕鱼游戏">
+        <div class="sea-topbar"><div class="sea-title"><span class="live-dot"></span><strong id="scene-label">珊瑚秘境</strong><span class="tag">休闲渔场</span></div><div class="sea-tools"><span class="sea-level">REEF · 01</span><button class="icon-button" id="pause-button" aria-label="暂停游戏" title="暂停 / 继续 [P]" data-icon="pause"></button><button class="icon-button" id="fullscreen-button" aria-label="全屏游戏" title="全屏" data-icon="expand"></button></div></div>
+        <div class="ocean-stage" id="ocean-stage">
+          <div class="ocean-light"></div>
+          <canvas id="game-canvas" aria-label="捕鱼区域：移动鼠标或手指瞄准，按住连续开炮" tabindex="0"></canvas>
+          <div class="stage-hud"><div class="haul-chip"><span data-icon="coin"></span><div><small>累计捕获收益</small><strong id="haul">0</strong></div></div><div class="event-chip"><span class="event-spark">✦</span><div><strong id="event-title">深海鱼潮</strong><small id="event-timer">即将抵达</small></div></div></div>
+          <div class="welcome-overlay" id="welcome"><div class="welcome-kicker"><span></span> 一片属于你的海 <span></span></div><h2>今天，也要<span>满载而归</span></h2><p>追逐鱼群 · 邂逅海王 · 收集每一份惊喜</p><button class="primary-button start-button" id="start-button"><span data-icon="play"></span> 开始捕鱼 <span>→</span></button><small><span data-icon="volume"></span> 声音已就绪，点击开启海底之旅</small></div>
+          <div class="pause-overlay" id="pause-overlay" hidden><span data-icon="pause"></span><h2>歇一会儿，海还在。</h2><p>鱼群和技能计时已暂停</p><button class="primary-button" id="resume-button">继续捕鱼 <span>→</span></button></div>
+          <div class="big-catch" id="big-catch" aria-live="polite"></div>
+          <div class="stage-bottom"><span class="stage-tip" id="stage-tip"><span class="tiny-crosshair">⌖</span> 移动瞄准 · 按住连发</span><span class="combo-indicator" id="combo-indicator"></span><span class="stage-signature">贺义制作 · 纯属娱乐</span></div>
+        </div>
+        <div class="control-deck"><div class="power-control"><div class="control-caption">炮台威力 <span>每发消耗</span></div><div class="power-stepper"><button id="power-down" aria-label="降低炮台威力">−</button><div><span data-icon="coin"></span><strong id="power-value">10</strong></div><button id="power-up" aria-label="提高炮台威力">＋</button></div><div class="power-dots" id="power-dots"></div></div><div class="deck-divider"></div><div class="skill-controls"><button class="skill-button" id="auto-button" title="自动开火 [A]"><span class="skill-art auto-art" data-icon="auto"></span><strong>自动开火</strong><small id="auto-status">A · 未开启</small></button><button class="skill-button" id="lock-button" title="锁定追踪 [L]"><span class="skill-art lock-art" data-icon="target"></span><strong>锁定追踪</strong><small id="lock-status">L · 未开启</small></button><button class="skill-button" id="freeze-button" title="冰冻鱼群 [F]"><span class="skill-art freeze-art" data-icon="snow"></span><strong>冰冻鱼群</strong><small id="freeze-status">F · 就绪</small></button><button class="skill-button" id="rage-button" title="狂暴速射 [R]"><span class="skill-art rage-art" data-icon="bolt"></span><strong>狂暴速射</strong><small id="rage-status">R · 就绪</small></button></div><button class="deck-help" data-modal="help" aria-label="操作说明" data-icon="help"></button></div>
+      </section>
+      <aside class="sidebar">
+        <section class="wallet-card"><div class="card-label"><span data-icon="wallet"></span> 我的金币 <span class="muted-tag">娱乐币</span></div><div class="balance-row"><span class="gold-coin">贺</span><strong id="balance">20,000</strong></div><p>好运，从这一炮开始。</p><button class="recharge-button" data-modal="wallet"><span data-icon="plus"></span> 充值游戏币 <span>↗</span></button><div class="wallet-stats"><div><span>捕获鱼数</span><strong id="caught-count">0 <small>条</small></strong></div><div><span>最高连捕</span><strong id="best-combo">0 <small>连</small></strong></div></div></section>
+        <section class="chance-card"><div class="card-label"><span data-icon="sparkles"></span> 好运加成 <span class="tiny-pill">自由设置</span></div><label for="chance-select">捕捉概率提升</label><div class="custom-select"><select id="chance-select"><option value="original">原版概率</option><option value="1">提升 1 倍</option><option value="2">提升 2 倍</option><option value="3">提升 3 倍</option><option value="4">提升 4 倍</option><option value="5">提升 5 倍</option><option value="6">提升 6 倍</option><option value="7">提升 7 倍</option><option value="8">提升 8 倍</option><option value="9">提升 9 倍</option><option value="10">提升 10 倍</option><option value="sure">必中模式 · 100%</option></select></div><div class="chance-note" id="chance-note">经典手感，让每次捕获都有惊喜。</div><div class="chance-tip"><span data-icon="info"></span><span>随时调整，即刻生效<br>奖励倍率不变，快乐由你掌控</span></div></section>
+        <section class="catch-card"><div class="card-label"><span data-icon="activity"></span> 捕获时刻 <span class="live-label">LIVE</span></div><div id="catch-list" class="catch-list"><div class="catch-empty"><span data-icon="fish"></span><p>下一份惊喜，就在深海里</p><small>你的精彩捕获会出现在这里</small></div></div></section>
+      </aside>
+    </div>
+    <div class="below-game"><div class="sea-switch"><span>探索海域</span><button class="scene-button selected" data-scene="reef"><i class="reef-dot"></i>珊瑚秘境</button><button class="scene-button" data-scene="night"><i class="night-dot"></i>月光深海</button><button class="scene-button" data-scene="sunset"><i class="sunset-dot"></i>鎏金海湾</button></div><span class="save-status" id="save-status"><i></i> 进度自动保存</span></div>
+    <footer><span><span class="footer-fish" data-icon="fish"></span> 小贺渔场 <span class="footer-divider">/</span> 贺义制作，纯属娱乐</span><span>本地单机 · 免费畅玩 · 所有金币均为虚拟娱乐积分</span></footer>
+  </main>
+  <dialog id="modal" aria-labelledby="modal-title"><div class="modal-header"><div><span class="eyebrow">XIAOHE FISHERY</span><h2 id="modal-title"></h2></div><button class="icon-button" id="modal-close" aria-label="关闭弹窗" data-icon="close"></button></div><div id="modal-body"></div></dialog>
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>
